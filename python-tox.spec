@@ -14,7 +14,7 @@ Summary:	Virtualenv-based automation of test activities
 Summary(pl.UTF-8):	Oparta na Virtualenv automatyka testów
 Name:		python-%{module}
 Version:	2.3.1
-Release:	2
+Release:	2.1
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/46/39/e15a857fda1852da1485bc88ac4268dbcef037ab526e1ac21accf2a5c24c/tox-%{version}.tar.gz
@@ -28,6 +28,7 @@ BuildRequires:	python-pluggy
 BuildRequires:	python-virtualenv
 BuildRequires:	python-pytest >= 2.3.5
 BuildRequires:	python-pytest-timeout
+BuildRequires:	python-py
 %endif
 %if %{with python3}
 BuildRequires:	python3-modules
@@ -35,6 +36,7 @@ BuildRequires:	python3-pluggy
 BuildRequires:	python3-virtualenv
 BuildRequires:	python3-pytest >= 2.3.5
 BuildRequires:	python3-pytest-timeout
+BuildRequires:	python3-py
 %endif
 Requires:	python-modules
 BuildArch:	noarch

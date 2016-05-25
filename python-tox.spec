@@ -2,8 +2,8 @@
 # - packaging of
 #        /usr/bin/tox
 #        /usr/bin/tox-quickstart
+# - fix tests on builders
 
-#
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 %bcond_without	python2 # CPython 2.x module
@@ -14,7 +14,7 @@ Summary:	Virtualenv-based automation of test activities
 Summary(pl.UTF-8):	Oparta na Virtualenv automatyka testów
 Name:		python-%{module}
 Version:	2.3.1
-Release:	2.1
+Release:	3
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/46/39/e15a857fda1852da1485bc88ac4268dbcef037ab526e1ac21accf2a5c24c/tox-%{version}.tar.gz

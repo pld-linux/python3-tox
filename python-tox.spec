@@ -14,7 +14,7 @@ Summary:	Virtualenv-based automation of test activities
 Summary(pl.UTF-8):	Oparta na Virtualenv automatyka testów
 Name:		python-%{module}
 Version:	2.3.1
-Release:	4
+Release:	5
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://pypi.python.org/packages/46/39/e15a857fda1852da1485bc88ac4268dbcef037ab526e1ac21accf2a5c24c/tox-%{version}.tar.gz

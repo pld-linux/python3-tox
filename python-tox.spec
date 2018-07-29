@@ -9,16 +9,16 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
-%define 	module	tox
+%define		module	tox
 Summary:	Virtualenv-based automation of test activities
 Summary(pl.UTF-8):	Oparta na Virtualenv automatyka testów
 Name:		python-%{module}
-Version:	2.3.1
-Release:	5
+Version:	3.1.2
+Release:	1
 License:	MIT
 Group:		Libraries/Python
-Source0:	https://pypi.python.org/packages/46/39/e15a857fda1852da1485bc88ac4268dbcef037ab526e1ac21accf2a5c24c/tox-%{version}.tar.gz
-# Source0-md5:	9371b3d3e25c03751a0372e19602dfb9
+Source0:	https://files.pythonhosted.org/packages/source/t/tox/tox-%{version}.tar.gz
+# Source0-md5:	5cd03e4edc4eeb808cd1cf3eced9debc
 URL:		http://tox.testrun.org/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG CONTRIBUTORS ISSUES.txt README.rst
+%doc CHANGELOG.rst CONTRIBUTORS README.rst
 %attr(755,root,root) %{_bindir}/tox
 %attr(755,root,root) %{_bindir}/tox-quickstart
 %{py_sitescriptdir}/%{module}
@@ -142,7 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python3}
 %files -n python3-%{module}
 %defattr(644,root,root,755)
-%doc CHANGELOG CONTRIBUTORS ISSUES.txt README.rst
+%doc CHANGELOG.rst CONTRIBUTORS README.rst
 %{py3_sitescriptdir}/%{module}
 %{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
 %endif

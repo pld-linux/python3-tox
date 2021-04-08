@@ -13,16 +13,18 @@
 Summary:	Virtualenv-based automation of test activities
 Summary(pl.UTF-8):	Oparta na Virtualenv automatyka testów
 Name:		python-%{module}
-Version:	3.1.2
-Release:	3
+Version:	3.23.0
+Release:	1
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/t/tox/tox-%{version}.tar.gz
-# Source0-md5:	5cd03e4edc4eeb808cd1cf3eced9debc
+# Source0-md5:	bd96f55bb0b50be9aec5bab6094a3eb1
 URL:		http://tox.testrun.org/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
+BuildRequires:	python-filelock
+BuildRequires:	python-flaky
 BuildRequires:	python-modules
 BuildRequires:	python-pluggy
 BuildRequires:	python-virtualenv
@@ -31,6 +33,8 @@ BuildRequires:	python-pytest-timeout
 BuildRequires:	python-py
 %endif
 %if %{with python3}
+BuildRequires:	python3-filelock
+BuildRequires:	python3-flaky
 BuildRequires:	python3-modules
 BuildRequires:	python3-pluggy
 BuildRequires:	python3-virtualenv
@@ -132,9 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG.rst CONTRIBUTORS README.rst
-%attr(755,root,root) %{_bindir}/tox
-%attr(755,root,root) %{_bindir}/tox-quickstart
+%doc CONTRIBUTORS README.md
 %{py_sitescriptdir}/%{module}
 %{py_sitescriptdir}/%{module}-%{version}-py*.egg-info
 %endif
@@ -142,7 +144,9 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python3}
 %files -n python3-%{module}
 %defattr(644,root,root,755)
-%doc CHANGELOG.rst CONTRIBUTORS README.rst
+%doc CONTRIBUTORS README.md
+%attr(755,root,root) %{_bindir}/tox
+%attr(755,root,root) %{_bindir}/tox-quickstart
 %{py3_sitescriptdir}/%{module}
 %{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
 %endif

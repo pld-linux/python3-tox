@@ -14,11 +14,12 @@ Summary:	Virtualenv-based automation of test activities
 Summary(pl.UTF-8):	Oparta na Virtualenv automatyka testów
 Name:		python-%{module}
 Version:	3.23.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/t/tox/tox-%{version}.tar.gz
 # Source0-md5:	bd96f55bb0b50be9aec5bab6094a3eb1
+Patch0:		virtualenv.patch
 URL:		http://tox.testrun.org/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -103,6 +104,7 @@ Dokumentacja API %{module}.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p1
 
 %build
 %if %{with python2}

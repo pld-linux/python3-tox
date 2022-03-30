@@ -14,7 +14,7 @@ Summary:	Virtualenv-based automation of test activities
 Summary(pl.UTF-8):	Oparta na Virtualenv automatyka testów
 Name:		python-%{module}
 Version:	3.23.0
-Release:	3
+Release:	4
 License:	MIT
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/t/tox/tox-%{version}.tar.gz

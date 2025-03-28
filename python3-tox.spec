@@ -11,15 +11,19 @@
 Summary:	Virtualenv-based automation of test activities
 Summary(pl.UTF-8):	Oparta na Virtualenv automatyka testów
 Name:		python3-%{module}
-Version:	4.24.2
+Version:	4.25.0
 Release:	1
 License:	MIT
 Group:		Libraries/Python
+#Source0Download: https://pypi.org/simple/tox/
 Source0:	https://files.pythonhosted.org/packages/source/t/tox/tox-%{version}.tar.gz
-# Source0-md5:	a984de2e2b34da98ec42ce5d759290bf
-URL:		http://tox.testrun.org/
+# Source0-md5:	8da662b8619bb9960d4b17cb06d713ae
+URL:		https://pypi.org/project/tox/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
+%if %{with tests}
+BuildRequires:	python3-chardet
+BuildRequires:	python3-devpi-process
 BuildRequires:	python3-filelock
 BuildRequires:	python3-flaky
 BuildRequires:	python3-modules
@@ -28,6 +32,7 @@ BuildRequires:	python3-virtualenv
 BuildRequires:	python3-pytest >= 2.3.5
 BuildRequires:	python3-pytest-timeout
 BuildRequires:	python3-py
+%endif
 Requires:	python3-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -58,10 +63,11 @@ które może być użyte do:
 %py3_build_pyproject
 
 %if %{with tests}
+%{__python3} -m zipfile -e build-3/*.whl build-3-test
 # use explicit plugins list for reliable builds (delete PYTEST_PLUGINS if empty)
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTEST_PLUGINS= \
-%{__python3} -m pytest tests
+%{__python3} -m pytest -o pythonpath="$PWD/build-3-test" tests
 %endif
 
 %install
